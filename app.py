@@ -10,10 +10,12 @@ def hello():
     try:
         connection = mysql.connector.connect(host='db',
                                              user='root',
-                                             password='root')
+                                             password='root',
+                                             database='books')
         cursor = connection.cursor()
 
-        sql = "SELECT * FROM customers"
+
+        sql = "SELECT * FROM authors"
         cursor.execute(sql)
         result = cursor.fetchall()
 
