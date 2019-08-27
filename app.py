@@ -12,13 +12,7 @@ def hello():
                                              user='root',
                                              password='root')
         cursor = connection.cursor()
-        sql = ['CREATE DATABASE IF NOT EXISTS test', 'USE test', 'CREATE TABLE IF NOT EXISTS customers (name VARCHAR(255), address VARCHAR(255))']
-        for query in sql:
-            cursor.execute(query)
-        sql = """INSERT INTO customers (name, address) VALUES (%s, %s)"""
-        val = ("John", "Highway 21")
-        cursor.execute(sql, val)
-        connection.commit()
+
         sql = "SELECT * FROM customers"
         cursor.execute(sql)
         result = cursor.fetchall()
